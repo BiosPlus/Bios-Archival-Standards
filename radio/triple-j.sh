@@ -1,3 +1,4 @@
+#!/bin/bash
 # ffmpeg string for archiving triple j's radio stream into 30 minute chunks, automatic date and time-stamping.
 # (was used for the hottest 100 of 2018 and 2019)
 # ensure that you grab the newest stream address by downloading an AAC+ pls file (higher bit-rate), opening that in a text editor and grabbing one of the stream links.
