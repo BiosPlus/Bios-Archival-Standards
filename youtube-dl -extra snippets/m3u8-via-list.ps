@@ -1,0 +1,20 @@
+# Snippet for ripping a list of m3u8 streams via youtube dl.
+# This presumes that you have a list of stream links in a txt file.
+# Since m3u8 streams don't ordinarily carry enough metadata to title output videos individually, this snippet will parse the amount of lines in the list, create a folder for each and then throw the corresponding mkv into it's folder.
+# Youtube-dl is used instead of ffmpeg as it supports resumption in the event of lost connections.
+
+
+$lister = "c:\rip\list.txt"
+$urllist = Get-Content $lister
+
+$foldernumber = 1
+
+#echo $urllist
+
+Foreach ($ffurl in $urllist) {
+    echo "Now processing: $foldernumber"
+    mkdir $foldernumber
+    youtube-dl "$ffurl" -o "$foldernumber\$foldernumber.mkv"
+    $foldernumber++
+    echo "episode complete"
+}
